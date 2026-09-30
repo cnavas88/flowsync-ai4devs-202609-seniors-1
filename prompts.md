@@ -26,10 +26,7 @@ Borra el ejemplo de abajo cuando escribas el primero.
 **Herramienta:** Claude Code
 
 ```
-Este es el ejemplo. Bórralo.
-
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+Escribeme la spec de lo que hace el sistema de la veritcal CUENTAS y ACCESSO de la spec y dejamela en un archivo versionado del proyecto. No inventes nada y no te salgas de esa vertical a la hora de revisar lo que hace el sistema.
 ```
 
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+**Qué salió:** funciono a la primera, pero no me guarde ninguna parte de ejemplo
