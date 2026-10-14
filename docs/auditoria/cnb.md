@@ -1,0 +1,15 @@
+| Qué pide la regla | Qué se revisó para comprobarla | Veredicto | Evidencia | Qué harías con ella |
+|---|---|---|---|---|
+| Que se cree una rama por feature si no está en `main` o en `sN/*` | `git log --graph --oneline -15`; `gh api repos/LIDR-academy/…/commits/<sha>/pulls` | No se puede comprobar | La historia es lineal y sin merges, así que no queda rastro de en qué rama se escribieron. Dos mensajes (`b955a72` y `afc4b74`) dicen «…en la rama de partida», lo que apunta a que se escribieron directamente en una `sN/start`. Es una inferencia, no algo verificable. | Borrarla: al ser un fork, será imposible comprobarla en los commits que lleguen del fork. |
+| Hay un commit por peticion | El formato de los 15 ultimos commits | Se cumple |  14 casan con el formato. a3bb962 («docs: las instrucciones apuntan…», de
+LIDR-AI4Devs) no lleva scope, que la plantilla de la skill exige. | Dejarla |
+| Se esta creando documentacion en el readme y en openapi cada vez que esta tocando controladores, rutas, etc.. | Se ha revisado los archivos que tocan controladores, rutas, etc... y si se añadio al swagger o al readme la correspondiente documentacion | Se cumple | Commit cbe9617:  Toca tasks_controller.ts, task_statuses_controller.ts y task_due_dates_controller.ts. En el mismo commit actualiza el documento OpenAPI
+(decoradores, app/openapi/schemas.ts y config/openapi.ts) y docs/capabilities/tasks/README.md. | Dejarla |
+| Se crea una PR por cambio asociado y se ha ejecutado el adversarial review | si existen PRs y si tienen descripcion | No se puede comprobar | Si no hay PRs para verificar, no se puede comprobar que se ha ejecutado la skill por ejemplo | Borrarla |
+| No añadas los comentarios del chat a la PR | SI se ha creado una PR y si existe lo que salio del chat escrito en algun lado | No se puede comprobar |  Para ninguno hay PR (commits/<sha>/pulls → []) ni transcript de sus autores. No
+hay ninguna respuesta de chat que revisar. | La borraria ya que no se puede comprobar |
+
+Parte B:
+1- La regla que mas te equivocaste: Acerte casi todas menos la primera, pensaba que si que iba a funcionar pero no se puede comprobar. El resto fue intuicion, sabia que los commits y la documentacion era algo facil de comprobar y que no habria ningun problema, la ultima, como no hay evidencias de lo que ha devuelto el chat era imposible.
+2- Una regla que no se puede comprobar con la informacion que hay: La regla que revisa el adversarial-reviewer, para poder verificarla, tendriamos que decirle que publique los resultados cuando cree la PR, para tener la evidencia.
+3- La regla que elimnarias y porque? La que cuando abras una PR, no repitas lo que dice en el chat. Nadie la sigue (todas las PRs se han creado a mano hasta el momento) asi que no aporta mucho valor ahora mismo. A parte que ya existe otra regla que hace algo parecido.
